@@ -24,3 +24,4 @@ jobs:
         shell: python3 {0}
         run: |
           print("job-index:", ${{ strategy.job-index }})
+          print("name:", ${{ matrix.name }})
