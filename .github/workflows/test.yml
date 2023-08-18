@@ -1,0 +1,26 @@
+name: Test
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main", "master"]
+    tags: ["v*"]
+  pull_request:
+    branches: ["main", "master"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        name: [1, 2, 3, 4, 5, 6, 7]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      -
+        shell: python3 {0}
+        run: |
+          print("job-index:", ${{ strategy.job-index }})
