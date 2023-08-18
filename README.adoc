@@ -1,6 +1,0 @@
-= github-act-job-index-bug
-
-[source,shell]
-----
-act -W .github/workflows/test.yml
-----
